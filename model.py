@@ -191,41 +191,32 @@ def spatial_cv(points, k=10):
         yield (train_id, test_id)
 
 
-# 50 countries with the DHS
+# 56 countries with the DHS
 countries_dhs = [
-    'ZW', 'ZM', 'UG', 'TZ', 'TL', 'TJ', 'TG', 'TD', 'SZ', 'SN',
-    'SL', 'RW', 'PH', 'PE', 'NP', 'NG', 'MZ', 'MW', 'MM', 'ML',
-    'MG', 'MD', 'MA', 'LS', 'LR', 'KH', 'KG', 'KE', 'ID', 'HT',
-    'HN', 'GT', 'GN', 'GH', 'GA', 'ET', 'EG', 'DO', 'CM', 'CD',
-    'BO', 'BJ', 'BI', 'BF', 'BD', 'AO', 'AM', 'AL', 'NA', 'CI'
+    'AL', 'AO', 'AM', 'BD', 'BJ', 'BO', 'BF', 'BI', 'KH', 'CM', 
+    'TD', 'CO', 'CD', 'CI', 'DO', 'EG', 'SZ', 'ET', 'GA', 'GH', 
+    'GT', 'GN', 'GY', 'HT', 'HN', 'IN', 'ID', 'JO', 'KE', 'KG', 
+    'LS', 'LR', 'MG', 'MW', 'ML', 'MD', 'MA', 'MZ', 'MM', 'NA', 
+    'NP', 'NG', 'PK', 'PE', 'PH', 'RW', 'SN', 'SL', 'ZA', 'TJ', 
+    'TZ', 'TL', 'TG', 'UG', 'ZM', 'ZW'
 ]
 
 # countries to estimate RWI
 countries_to_estimate = [
-    'ZW', 'ZM', 'ZA', 'YT', 'YE', 'WS', 'WF', 'VU', 'VN', 'VI',
-    'VG', 'VE', 'VC', 'VA', 'UZ', 'UY', 'US', 'UA', 'TZ', 'UG',
-    'TT', 'TW', 'TV', 'TR', 'TM', 'TN', 'TK', 'TO', 'TJ', 'TL',
-    'SV', 'SZ', 'SY', 'SX', 'TH', 'TC', 'TG', 'TD', 'SR', 'SS',
-    'SN', 'SO', 'ST', 'SK', 'SL', 'SJ', 'SI', 'SM', 'SC', 'SE',
-    'SH', 'SD', 'SG', 'SB', 'RW', 'RU', 'SA', 'RS', 'RO', 'RE',
-    'QA', 'PY', 'PW', 'PT', 'PR', 'PS', 'PM', 'PN', 'PK', 'PL',
-    'PH', 'PE', 'PG', 'PF', 'PA', 'OM', 'NZ', 'NU', 'NR', 'NP',
-    'NO', 'NL', 'NI', 'NG', 'NF', 'NE', 'NC', 'NA', 'MZ', 'MY',
-    'MX', 'MW', 'MV', 'MT', 'MU', 'MS', 'MR', 'MP', 'MQ', 'MO',
-    'MN', 'MM', 'ML', 'MK', 'MH', 'MG', 'MF', 'ME', 'MD', 'MC',
-    'MA', 'LY', 'LV', 'LU', 'LT', 'LS', 'LR', 'LK', 'LI', 'LC',
-    'LB', 'LA', 'KZ', 'KY', 'KW', 'KR', 'KP', 'KN', 'KM', 'KI',
-    'KH', 'KG', 'KE', 'JP', 'JO', 'JM', 'JE', 'IT', 'IS', 'IR',
-    'IQ', 'IN', 'IM', 'IL', 'IE', 'ID', 'HU', 'HT', 'HR', 'HK',
-    'HN', 'GY', 'GW', 'GU', 'GT', 'GR', 'GQ', 'GP', 'GN', 'GL',
-    'GM', 'GI', 'GH', 'GG', 'GF', 'GE', 'GD', 'GB', 'GA', 'FR',
-    'FM', 'FO', 'FK', 'FJ', 'FI', 'ET', 'ES', 'ER', 'EH', 'EG',
-    'EE', 'EC', 'DZ', 'DO', 'DM', 'DK', 'DJ', 'DE', 'CZ', 'CY',
-    'CW', 'CV', 'CU', 'CR', 'CO', 'CN', 'CM', 'CL', 'CK', 'CI',
-    'CH', 'CG', 'CF', 'CD', 'CA', 'BZ', 'BY', 'BW', 'BT', 'BS',
-    'BR', 'BQ', 'BO', 'BN', 'BM', 'BL', 'BJ', 'BI', 'BH', 'BG',
-    'BF', 'BE', 'BD', 'BB', 'BA', 'AZ', 'AX', 'AW', 'AU', 'AT',
-    'AS', 'AR', 'AO', 'AM', 'AL', 'AI', 'AG', 'AF', 'AE', 'AD',
+    'AF', 'AL', 'DZ', 'AS', 'AO', 'AR', 'AM', 'AZ', 'BD', 'BY', 
+    'BZ', 'BJ', 'BT', 'BO', 'BA', 'BW', 'BR', 'BG', 'BF', 'BI', 
+    'CV', 'KH', 'CM', 'CF', 'TD', 'CN', 'CO', 'KM', 'CD', 'CG', 
+    'CR', 'CI', 'CU', 'DJ', 'DM', 'DO', 'EC', 'EG', 'SV', 'GQ', 
+    'ER', 'SZ', 'ET', 'FJ', 'GA', 'GM', 'GE', 'GH', 'GD', 'GT', 
+    'GN', 'GW', 'GY', 'HT', 'HN', 'IN', 'ID', 'IR', 'IQ', 'JM', 
+    'JO', 'KZ', 'KE', 'KI', 'KP', 'XK', 'KG', 'LA', 'LB', 'LS', 
+    'LR', 'LY', 'MG', 'MW', 'MY', 'MV', 'ML', 'MH', 'MR', 'MU', 
+    'MX', 'FM', 'MD', 'MN', 'ME', 'MA', 'MZ', 'MM', 'NA', 'NR', 
+    'NP', 'NI', 'NE', 'NG', 'MK', 'PK', 'PG', 'PY', 'PE', 'PH', 
+    'RO', 'RU', 'RW', 'WS', 'ST', 'SN', 'RS', 'SL', 'SB', 'SO', 
+    'ZA', 'SS', 'LK', 'LC', 'VC', 'SD', 'SR', 'SY', 'TJ', 'TZ', 
+    'TH', 'TL', 'TG', 'TO', 'TN', 'TR', 'TM', 'TV', 'UG', 'UA', 
+    'UZ', 'VU', 'VE', 'VN', 'PS', 'YE', 'ZM', 'ZW'
 ]
 
 print(len(countries_dhs))
